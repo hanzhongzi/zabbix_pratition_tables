@@ -12,6 +12,7 @@ English
 ```
 
 你是否为zabbix的几个大表头疼
+
 Are you feeling a headache for some of Zabbix's big tables
 
 ```sql
