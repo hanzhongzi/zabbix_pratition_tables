@@ -120,4 +120,6 @@ CALL zabbix_server.drop_partitions('zabbix_server');
 -- # If CALL zabbix_server.create_next_partitions('zabbix_server') is executed again, it will throw an error stating that the partitions for each table have already been created.
 ```
 
+# 如果有任何问题欢迎您提issue，如果对您有用请给我点个star。这将鼓励我去做出更多帮助大家的项目
+# If you have any questions, feel free to open an issue. If you find it useful, please give me a star. This will encourage me to create more projects that help everyone.
 
