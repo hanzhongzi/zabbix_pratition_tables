@@ -110,8 +110,10 @@ mysql> SHOW CREATE EVENT zabbix_server.e_part_manage\G;
 -- CALL zabbix_server.create_next_partitions('zabbix_server');
 -- END
 --
+CALL zabbix_server.create_next_partitions('zabbix_server');
 -- #去执行 CALL zabbix_server.create_next_partitions('zabbix_server'); 会在我们上面说的未来会很大很头疼的表中新建一个分区~，日期是今天正常滴可以有数据写入进来。
 -- #去执行 CALL zabbix_server.drop_partitions('zabbix_server');  会删除之前咱们在 zabbix_alter_tables.sql 中增加的表分区。
+CALL zabbix_server.drop_partitions('zabbix_server');
 -- # To execute CALL zabbix_server.create_next_partitions('zabbix_server'); which will create a new partition in the tables we discussed earlier that are going to be large and troublesome in the future~. The date is today and data can normally be written into it.
 -- # To execute CALL zabbix_server.drop_partitions('zabbix_server'); will delete the table partitions we added earlier in zabbix_alter_tables.sql.
 -- #如果再次执行 CALL zabbix_server.create_next_partitions('zabbix_server'); 会报错各个表的分区已经新建了。
