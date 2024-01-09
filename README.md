@@ -46,13 +46,13 @@ mysql -u{USERNAME} -h{MYSQLHOST} -p{MYSQLPASSWORD}  {YOUR_ZABBIX_DATABASE_NAME} 
 
 ## 针对两个SQL文件的解释:
 ```text
-1.在您按照官方文档导入数据表和基础数据后,首先在您命名的数据库中执行zabbix_alter_tables.sql中的SQL。
+一.在您按照官方文档导入数据表和基础数据后,首先在您命名的数据库中执行zabbix_alter_tables.sql中的SQL。
 目的是基于 clock 字段的值，将history, history_log, history_str, history_text, history_uint, trends, trends_uint表都被分成多个分区,每个分区都有一个特定的值范围。
 分区的值范围是通过 UNIX_TIMESTAMP(DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL 1 YEAR), '%Y-%m-%d')) 计算得到的。这表示每个分区的上限是当前日期一年前的某一天的 Unix 时间戳。
 定一年前的某一天是为了不影响当前的数据，和待会儿测试删除分区。
 
 
-2.之后在您命名的数据库中执行zabbix_pratition_tables.sql中的SQL。
+二.之后在您命名的数据库中执行zabbix_pratition_tables.sql中的SQL。
 这段 SQL 脚本是为上面说的那些大表分区管理设计的。让我们逐步解析这个脚本的关键部分：
 1.创建 manage_partitions 表：
 此表创建用于跟踪不同表的分区管理方式。它包括字段，如表名、分区周期（每天或每月）、保留分区的时长（以天或月计）、最后一次更新分区的时间，以及额外的评论。
