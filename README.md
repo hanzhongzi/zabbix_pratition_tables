@@ -32,7 +32,6 @@ trends_uint
 
 ## 如何使用 (HOW TO USE)
 > **注意:** 下面的操作是在您安装好zabbix服务器和mysql后并且在官方的指导文件中已经把库表创建好了。
-
 > **Notice:** The following operation is to create the library table in the official guide file after you have installed the Zabbix server and MySQL.
 > **注意:** 如果您的集群数据量已经很大，写入很大。建议使用pt工具或者新建集群按照此方法处理后做一次数据迁移。
 > **Notice:** If your cluster already has a large amount of data and is experiencing heavy write loads, it is recommended to use the pt tool or create a new cluster and migrate the data after processing it using this method.
